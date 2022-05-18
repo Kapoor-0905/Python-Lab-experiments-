@@ -19,27 +19,38 @@ root.mainloop()
 
 from tkinter import *
 root = Tk()
+root.title("Click")
+#root.geometry("600x400")
 entry = Entry(root)
-def show_name():
-    username = entry.get()
-    label = Label(root,text=username)
-    label.grid(row=6,column=1)
-def func():
-    rdo = Label(root,text="You have clicked"+" "+str(var.get())).grid(row=6,column=2)
+entry.grid()
+def print_data():
+    label = Label(root,text=entry.get())
+    label.grid()
+def position():
+    pos = "You selected first"
+    label.config(text=pos)
+    label.grid()
+def position2():
+    pos = "You selected second"
+    label.config(text=pos)
+    label.grid()
+def position3():
+    pos = "You selected third"
+    label.config(text=pos)
+    label.grid()
+radio = IntVar()
+btn = Button(root,text="display",bg="Yellow",fg="red",command=print_data)
+r = Radiobutton(root,text="first",variable = radio,value = 1,command = position)
+r.grid(row=2,column=10)
 
-var=IntVar()
-f= Radiobutton(root, text="first choice", value=1, command=func, variable=var)
-f.grid(row=1, column=0)
+r1 = Radiobutton(root,text="second",variable = radio,value = 2,command = position2)
+r1.grid(row=2,column=12)
 
-s= Radiobutton(root, text="second choice", value=2, command=func, variable=var)
-s.grid(row=1, column=1)
+r2 = Radiobutton(root,text="third",variable = radio,value = 3,command = position3)
+r2.grid(row=2,column=14)
 
-th= Radiobutton(root, text="third choice", value=3, command=func, variable=var)
-th.grid(row=1, column=2)
-            
-btn = Button(root,text="Show",command=show_name)
+label = Label(root)
 btn.grid()
-entry.grid(row=2,column=1)
 root.mainloop()
 
 
